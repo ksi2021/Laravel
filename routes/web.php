@@ -22,5 +22,7 @@ Route::get('/', function (Request $request) {
 
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/users', [UserController::class, 'showAll']);
+Route::get('/form', [UserController::class, 'auth']);
+Route::post('/auth', [UserController::class, 'authPost']);
 
 
