@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+    //return ['tets' => 1];
     return $request->user();
 });

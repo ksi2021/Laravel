@@ -9,7 +9,20 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>1</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
     <style>
+        .card{
+            background-image: url('./main.png');
+            background-repeat: no-repeat;
+            background-origin: border-box;
+            /*background-attachment: fixed;*/
+            background-size: 100%;
+            background-position: center;
+            color: white;
+        }
+        body{
+            background-color: rgba(247,250,252,.7);
+        }
         header {
             background-image: linear-gradient(
                 180deg, #eee, #fff 100px, #fff);
