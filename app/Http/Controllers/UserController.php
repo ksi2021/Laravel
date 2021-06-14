@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -40,10 +41,10 @@ class UserController extends Controller
         //$e = Auth::user();
         //$name = $request->old('name');
         // dd(Session::all());
-       // $e = DB::table('products')->orderBy('id')->SimplePaginate(1);
+        // $e = DB::table('products')->orderBy('id')->SimplePaginate(1);
 
 
-      //  dd($e->products());
+        //  dd($e->products());
         return view('user.LoginForm');
     }
 
@@ -54,8 +55,8 @@ class UserController extends Controller
 //        return '123';
 
         $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -67,33 +68,36 @@ class UserController extends Controller
         if (Auth::attempt($credentials, $remember = $request->input('remember'))) {
             $request->session()->regenerate();
 
-            return redirect('/users');
+            return redirect('/');
         }
 
-        return back()->withErrors(['message' => 'incorrect data']);
+        return back()->withInput()->withErrors(['message' => 'Пользователь с такими данными не найден !!!']);
     }
-    public function reg(Request $request){
+
+    public function reg(Request $request)
+    {
         $request->validate([
-            'email' => 'required|email',
-            'name' => 'required|min:6',
+            'email' => 'required|email|unique:users',
+            'name' => 'required|min:3',
             'password' => 'required|min:6',
-            'passwordRepeat' => 'required|min:6'
+            'passwordRepeat' => ['required', 'min:6',Rule::in([$request->input('password')])]
         ]);
 
         $user = new User();
         $user->username = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        if($user->save())
-        {
+        if ($user->save()) {
             $credentials = $request->only('email', 'password');
-            Auth::attempt($credentials,$remember = true);
-            return redirect('/users');
+            Auth::attempt($credentials, $remember = true);
+            return redirect('/');
         }
 
-        return back()->withErrors(['error' => true]);
+        return back()->withInput()->withErrors(['error' => true]);
     }
-    public function Logout(){
+
+    public function Logout()
+    {
         Auth::logout();
         return redirect()->route('login');
     }
