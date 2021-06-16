@@ -74,26 +74,35 @@
                             {{Auth::user()->username}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @if(Auth::user()->status == 'admin')
+                                <li> <a class="dropdown-item" href="/admin">Admin</a></li>
+                            @endif
                             <li><a class="dropdown-item" href="#">Ваш профиль</a></li>
                             <li><a class="dropdown-item" href="#">Игры</a></li>
                             <li><a class="dropdown-item" href="#">Чат</a></li>
-                            <li><a class="dropdown-item" href="#">Друзья</a></li>
-                            <li><a class="dropdown-item" href="#">Выйти</a></li>
+                            <li> <a class="dropdown-item" href="#">Друзья</a></li>
+                            <li><a class="dropdown-item" href="/user/logout">Выйти</a></li>
 
                         </ul>
+
+
+
                     @endif
                 </li>
             </ul>
+            <div style="width: 50px;margin-left: auto;">
+                @if(Auth::check())
+                <a href="#" style="text-decoration: none;margin-right: 10px; color: gray">
+                    <i class="fas fa-shopping-cart"></i> 0
+                </a>
+                @endif
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
-        <div>
-            <a href="#" style="text-decoration: none;margin-right: 10px; color: gray">
-                <i class="fas fa-shopping-cart"></i> 0
-            </a>
-        </div>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
     </div>
 </nav>
 
@@ -108,7 +117,7 @@
     <div class="container">
 
         <!-- Social buttons -->
-        <ul class="list-unstyled list-inline text-center" >
+        <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
                 <a class="btn-floating btn-fb mx-1">
                     <i class="fab fa-facebook-f"> </i>
@@ -141,7 +150,7 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3"   style="background: darkgrey; color: white">© 2020 Copyright:
+    <div class="footer-copyright text-center py-3" style="background: darkgrey; color: white">© 2020 Copyright:
         <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
     </div>
     <!-- Copyright -->

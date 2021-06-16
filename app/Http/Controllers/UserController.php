@@ -67,7 +67,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials, $remember = $request->input('remember'))) {
             $request->session()->regenerate();
-
+            if(Auth::user()->status == 'admin'){return redirect('/admin');}
             return redirect('/');
         }
 
@@ -90,6 +90,7 @@ class UserController extends Controller
         if ($user->save()) {
             $credentials = $request->only('email', 'password');
             Auth::attempt($credentials, $remember = true);
+            if(Auth::user()->status == 'admin'){return redirect('/admin');}
             return redirect('/');
         }
 
@@ -100,5 +101,29 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function StoreUser(Request $request){
+        $request->validate([
+            'email' => 'required|email|unique:users',
+            'name' => 'required|min:3',
+            'password' => 'required|min:6',
+            'passwordRepeat' => ['required', 'min:6',Rule::in([$request->input('password')])]
+        ]);
+
+        $user = new User();
+        $user->username = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->status = $request->input('role') ? $request->input('role'):'user';
+        if ($user->save()) {
+            return back()->with('success' , 'Пользователь успешно создан !!!');
+        }
+        return back()->withInput()->withErrors(['error' => true]);
+    }
+    public function Destroy($id){
+        $user = User::query()->where(['id' => $id])->first();
+        if($user){$user->delete();}
+        return back();
     }
 }

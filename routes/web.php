@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -34,6 +35,19 @@ Route::middleware('auth')->prefix('user')->group(function (){
     Route::get('/profile', function (){
         return [1,2,3,4,5];
     });
+});
+Route::middleware('role:admin')->prefix('admin')->group(function (){
+    Route::get('/', [AdminController::class, 'Products'])->name('index');
+    Route::get('/orders', [AdminController::class, 'index'])->name('orders');
+    Route::get('/users', [AdminController::class, 'Users'])->name('users');
+    Route::get('/delete_user/{id}', [UserController::class, 'Destroy']);
+    Route::get('/delete_category/{id}', [\App\Http\Controllers\CategoryController::class, 'Destroy']);
+    Route::post('/store_user',[UserController::class,'StoreUser']);
+    Route::post('/store_product',[\App\Http\Controllers\ProductController::class,'Store']);
+    Route::get('/categories', [AdminController::class, 'Categories'])->name('categories');
+    Route::post('/store_category', [\App\Http\Controllers\CategoryController::class, 'Store']);
+
+
 });
 
 
