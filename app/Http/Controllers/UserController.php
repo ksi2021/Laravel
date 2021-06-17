@@ -67,7 +67,9 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials, $remember = $request->input('remember'))) {
             $request->session()->regenerate();
-            if(Auth::user()->status == 'admin'){return redirect('/admin');}
+            if (Auth::user()->status == 'admin') {
+                return redirect('/admin');
+            }
             return redirect('/');
         }
 
@@ -80,7 +82,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'name' => 'required|min:3',
             'password' => 'required|min:6',
-            'passwordRepeat' => ['required', 'min:6',Rule::in([$request->input('password')])]
+            'passwordRepeat' => ['required', 'min:6', Rule::in([$request->input('password')])]
         ]);
 
         $user = new User();
@@ -89,8 +91,10 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         if ($user->save()) {
             $credentials = $request->only('email', 'password');
-            Auth::attempt($credentials, $remember = true);
-            if(Auth::user()->status == 'admin'){return redirect('/admin');}
+            Auth::attempt($credentials, $remember = $request->input('remember'));
+            if (Auth::user()->status == 'admin') {
+                return redirect('/admin');
+            }
             return redirect('/');
         }
 
@@ -103,27 +107,64 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function StoreUser(Request $request){
+    public function StoreUser(Request $request)
+    {
         $request->validate([
             'email' => 'required|email|unique:users',
             'name' => 'required|min:3',
             'password' => 'required|min:6',
-            'passwordRepeat' => ['required', 'min:6',Rule::in([$request->input('password')])]
+            'passwordRepeat' => ['required', 'min:6', Rule::in([$request->input('password')])]
         ]);
 
         $user = new User();
         $user->username = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->status = $request->input('role') ? $request->input('role'):'user';
+        $user->status = $request->input('role') ? $request->input('role') : 'user';
         if ($user->save()) {
-            return back()->with('success' , 'Пользователь успешно создан !!!');
+            return back()->with('success', 'Пользователь успешно создан !!!');
         }
         return back()->withInput()->withErrors(['error' => true]);
     }
-    public function Destroy($id){
+
+    public function Destroy($id)
+    {
         $user = User::query()->where(['id' => $id])->first();
-        if($user){$user->delete();}
+        if ($user) {
+            $user->delete();
+        }
         return back();
+    }
+
+    public function edit($id)
+    {
+        $user = User::query()->where('id', $id)->firstOrFail();
+        return view('Admin.EditUser', ['user' => $user]);
+    }
+
+    public function update(Request $request)
+    {
+       // session()->forget('user_page');
+        $key = $request->session()->get('user_page') != null ? $request->session()->get('user_page')[0] : 1;
+
+
+        $e = User::query()->where('id', $request->input('id'))->firstOrFail();
+        if ($request->input('password')) {
+            $e->password = Hash::make($request->input('password'));
+        }
+        if ($request->input('email')) {
+            $try = User::query()->where('email', $request->input('email'))->count();
+            if ($e->email != $request->input('email')) {
+                if ($try >= 1) {
+                    return back()->withInput()->withErrors(['email' => 'email is already required']);
+                } else {
+                    $e->email = $request->input('email');
+                }
+            }
+        }
+        $e->status = $request->input('status');
+        $e->username = $request->input('username');
+        if($e->save()) return redirect('/admin/users?page' . $key);
+        return back()->withInput();
     }
 }

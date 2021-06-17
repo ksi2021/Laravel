@@ -22,50 +22,28 @@
                 </div>
             </div>
         @endif
-        <form action="/admin/store_category" method="post"
+        <form
+{{--            action="/admin/update_category" --}} action=""
+            method="post"
               style="border: 1px solid #e2e8f0; border-radius:5px;font-weight: bolder;text-transform: uppercase;">
             <div style="font-size: 30px;background: #dee2e6; ">
-                <img  src="/images/static/Logo.svg"  width="40" alt=""> Add new category form
+                <img  src="/images/static/Logo.svg"  width="40" alt=""> Update category
             </div>
             <div style="padding: 10px;">
                 @csrf
                 <div class="form-group">
-                    <input type="text" value="{{ old('name') }}" placeholder="Enter title" name="name" class="form-control @error('name') is-invalid @enderror">
+                    <input type="hidden" name="id" value="{{$data->id}}">
+                    <input type="text" value="{{$data->name}}" placeholder="Enter title" name="name" class="form-control @error('name') is-invalid @enderror">
                     @error('name')
                     <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                    <button class="btn btn-primary btn-block" type="submit">Save</button>
                 </div>
             </div>
         </form>
     </div>
-    <table class="my-3 p-3 mx-auto rounded shadow-sm table" style="box-shadow: 0 0 5px rgba(0,0,0,0.3) !important;width: 99%;">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">title</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
 
-        @foreach($data as $el)
-            <tr>
-                <th scope="row">{{$el->id}}</th>
-                <td>{{$el->name}}</td>
-
-
-                <td><a href="/admin/delete_category/{{$el->id}}"><i class="fas fa-trash text-danger"></i></a><a href="/admin/edit_category/{{$el->id}}"><i class="fas fa-pen-square text-primary"></i></a></td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-    @if(!$data)
-        <h1 class="text-danger">Users not found</h1>
-    @endif
-
-    <div class="text-center mb-3"> {{$data->links()}}</div>
 @endsection

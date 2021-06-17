@@ -15,6 +15,15 @@
 
     <!-- Custom styles for this template -->
     <style>
+        .Mytable th {
+            background-color: #005cbf !important;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+
         a{
          text-decoration: none;
         }
@@ -80,6 +89,12 @@
                         <a class="nav-link @if(Request::route()->getName() == 'categories') active @endif" href="/admin/categories">
                             <i class="fas fa-th-large"></i>
                             Categories @if(Request::route()->getName() == 'categories')<span class="sr-only">(current)</span>  @endif
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-sitemap"></i>
+                            Site
                         </a>
                     </li>
 {{--                    <li class="nav-item">--}}

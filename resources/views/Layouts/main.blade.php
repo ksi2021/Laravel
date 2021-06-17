@@ -25,7 +25,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
-            <img src="./images/static/Logo.png" alt="" width="50" HEIGHT="50" class="d-inline-block align-text-top">
+            <img src="/images/static/Logo.png" alt="" width="50" HEIGHT="50" class="d-inline-block align-text-top">
             {{--            FREE FIRE STORE--}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"

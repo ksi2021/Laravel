@@ -26,5 +26,22 @@ class CategoryController extends Controller
         }
         return back()->withInput()->withErrors();
     }
+//    public function update(Request $request){
+//        $data = Category::query()->where(['id' => $request->input('id')])->firstOrFail();
+//        $data->name = $request->input('name');
+//        if($data->save()){return back();}
+//    }
+    public function view(Request $request,$id){
+        if(!empty($_POST))
+        {
+            $key = $request->session()->get('cat_page') != null ? $request->session()->get('cat_page')[0] : 1;
+            $data = Category::query()->where(['id' => $request->input('id')])->firstOrFail();
+            $data->name = $request->input('name');
+            if($data->save()){return redirect('/admin/categories?page'.$key );}
+        }
+        $data = Category::query()->where(['id' => $id])->firstOrFail();
+        return view('Admin.CatView',['data' => $data]);
+    }
+
 
 }

@@ -12,7 +12,7 @@
 
     <h3 class="text-center mt-3">Рекомендуемое</h3>
     <hr style="width: 50%;height: 2px;" class="mx-auto">
-    <div id="carouselExampleCaptions" class="carousel slide "  data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators " style="top: 100%">
             @foreach($data as $id => $value)
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$id}}"
@@ -21,14 +21,16 @@
             @endforeach
         </div>
 
-        <div class="carousel-inner" style="background: #ababab">
+        <div class="carousel-inner" style="background: #ababab;">
             @foreach($data as $id => $value)
                 <div class="carousel-item @if($id == 0)active @endif" style="height: 600px;">
-                    <img src="https://i.pinimg.com/originals/35/82/21/358221b85dc0c666cbd6bf4961a260db.jpg" class="d-block w-auto mx-auto" alt="...">
+                    <a href="/game/{{$value->id}}">
+                    <img src="{{asset('/storage/' . $value->image)}}" style="width: 100% ;" class="d-block mx-auto" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Метка первого слайда</h5>
                         <p>Некоторый репрезентативный заполнитель для первого слайда.</p>
                     </div>
+                    </a>
                 </div>
             @endforeach
 
