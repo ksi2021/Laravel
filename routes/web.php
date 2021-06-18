@@ -53,6 +53,12 @@ Route::get('/game/{id}', function ($id) {
 
 });
 
+Route::get('/api/games',function (Request $request){
+    $e = \App\Models\Product::all();
+    return Illuminate\Http\Resources\Json\JsonResource::make($e);
+});
+
+
 Route::get('/games', function (Request $request) {
 
     if ($request->get('query')) {
@@ -60,12 +66,17 @@ Route::get('/games', function (Request $request) {
             case 'new':
                 $games = DB::table('products')->orderBy('id', 'asc')->limit(30)->SimplePaginate(8);
                 break;
+            case 'sale':
+                $games = DB::table('products')->whereRaw('newprice != 0')->SimplePaginate(8);
+                break;
             default:
                 $games = DB::table('products')->SimplePaginate(8);
                 break;
         }
     }
-    $games = DB::table('products')->SimplePaginate(8);
+    else{
+        $games = DB::table('products')->SimplePaginate(8);
+    }
     $c = $request->get('query');
     return view('site.games', ['games' => $games, 'c' => $c]);
 });
@@ -100,9 +111,10 @@ Route::middleware('auth')->prefix('user')->group(function () {
 });
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'Products'])->name('index');
-    Route::get('/orders', [AdminController::class, 'index'])->name('orders');
+    Route::get('/orders', [AdminController::class, 'Orders'])->name('orders');
     Route::get('/users', [AdminController::class, 'Users'])->name('users');
     Route::get('/delete_user/{id}', [UserController::class, 'Destroy']);
+    Route::get('/delete_order/{id}', [\App\Http\Controllers\OrderController::class, 'Destroy']);
     Route::get('/delete_product/{id}', [\App\Http\Controllers\ProductController::class, 'Destroy']);
     Route::get('/destroy_product/{id}', [\App\Http\Controllers\ProductController::class, 'Destroy1']);
     Route::get('/delete_category/{id}', [\App\Http\Controllers\CategoryController::class, 'Destroy']);

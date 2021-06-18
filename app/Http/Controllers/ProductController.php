@@ -86,7 +86,8 @@ class ProductController extends Controller
         $data->title = $request->input('title');
         $data->body = $request->input('body');
         $data->category_id = $request->input('category');
-        $data->price = $request->input('price');
+        if($data->price != $request->input('price')){  $data->newprice = $request->input('price');}
+
         if($data->save()) return redirect('/admin?page='.$key);
         else{ return back()->withInput();}
     }
