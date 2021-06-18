@@ -64,18 +64,18 @@ Route::get('/games', function (Request $request) {
     if ($request->get('query')) {
         switch ($request->get('query')) {
             case 'new':
-                $games = DB::table('products')->orderBy('id', 'asc')->limit(30)->SimplePaginate(8);
+                $games = DB::table('products')->orderBy('id', 'asc')->limit(30)->SimplePaginate(9);
                 break;
             case 'sale':
-                $games = DB::table('products')->whereRaw('newprice != 0')->SimplePaginate(8);
+                $games = DB::table('products')->whereRaw('newprice != 0')->SimplePaginate(9);
                 break;
             default:
-                $games = DB::table('products')->SimplePaginate(8);
+                $games = DB::table('products')->SimplePaginate(9);
                 break;
         }
     }
     else{
-        $games = DB::table('products')->SimplePaginate(8);
+        $games = DB::table('products')->SimplePaginate(9);
     }
     $c = $request->get('query');
     return view('site.games', ['games' => $games, 'c' => $c]);

@@ -3,10 +3,10 @@
 
 @section('content')
 
-    <aside>23423</aside>
-    <main style="max-width: 85%;">
+{{--    <aside>23423</aside>--}}
+    <main style="max-width: 85%;" class="mx-auto">
         <h1 class="text-center">Игры</h1>
-        <div id="grid" class=" rounded shadow-sm table ">
+        <div id="grid" class=" rounded shadow-sm table  ">
 
             @foreach($games as $game)
                 <div class="card">
