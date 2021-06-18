@@ -13,7 +13,7 @@
    margin-left: 10px;
 }
 .carousel-inner{
-    text-shadow: black 1px 1px 3px, black -1px -1px 3px;
+    text-shadow: black 2px 2px 5px, black -2px -2px 5px;
     font-size: 20px;
 }
 
@@ -22,5 +22,60 @@
     /*height: 20px;*/
     /*border-radius: 50%;*/
     /*width: 20px;*/
+}
+
+#grid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 1420px) {
+    #grid{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr ;
+    }
+}@media screen and (max-width: 960px) {
+    #grid{
+        grid-template-rows: 1fr ;
+        grid-template-columns: 1fr;
+    }
+}
+#grid > .card{
+    padding: .5em;
+    background: #c3c3c3;
+    text-align: center;
+}
+
+.card a *{
+    color: black;
+    text-decoration: none;
+}
+aside {
+    background: #f0f0f0;
+    padding: 10px;
+    width: 200px;
+    float: right;
+}
+
+.pagination nav{
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-150px);
+    margin-bottom: 15px;
+}
+.btn-dark:hover{
+    color: red !important;
+}
+a .fa-times{
+    font-size: 20px;
+    color: red;
+    transition: .2s all linear;
+}
+a .fa-times:hover{
+
+    padding: 10px;
+    background-color: rgb(0,0,0,0.3);
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="./images/static/Logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/static/Logo.png" type="image/x-icon">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +12,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
@@ -40,9 +40,10 @@
                         Магазин
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="/games?query=new">Новые игры</a></li>
+                        <li><a class="dropdown-item" href="/games?query=popular">Популярные игры</a></li>
+                        <li><a class="dropdown-item" href="/games?query=sale">Со скидкой</a></li>
+                        <li><a class="dropdown-item" href="/games">Все игры</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,9 +52,10 @@
                         Сообщество
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Vk</a></li>
+                        <li><a class="dropdown-item" href="#">Facebook</a></li>
+                        <li><a class="dropdown-item" href="#">Twitter</a></li>
+                        <li><a class="dropdown-item" href="#">Instagram</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -75,12 +77,12 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @if(Auth::user()->status == 'admin')
-                                <li> <a class="dropdown-item" href="/admin">Admin</a></li>
+                                <li><a class="dropdown-item" href="/admin">Admin</a></li>
                             @endif
-                            <li><a class="dropdown-item" href="#">Ваш профиль</a></li>
-                            <li><a class="dropdown-item" href="#">Игры</a></li>
-                            <li><a class="dropdown-item" href="#">Чат</a></li>
-                            <li> <a class="dropdown-item" href="#">Друзья</a></li>
+                            <li><a class="dropdown-item" href="/user/profile">Ваш профиль</a></li>
+                            <li><a class="dropdown-item" href="/user/games">Игры</a></li>
+                            {{--                            <li><a class="dropdown-item" href="#">Чат</a></li>--}}
+                            {{--                            <li> <a class="dropdown-item" href="#">Друзья</a></li>--}}
                             <li><a class="dropdown-item" href="/user/logout">Выйти</a></li>
 
                         </ul>
@@ -92,15 +94,12 @@
             </ul>
             <div style="width: 50px;margin-left: auto;">
                 @if(Auth::check())
-                <a href="#" style="text-decoration: none;margin-right: 10px; color: gray">
-                    <i class="fas fa-shopping-cart"></i> 0
-                </a>
+                    <a href="/user/basket" style="text-decoration: none;margin-right: 10px; color: gray">
+                        <i class="fas fa-shopping-cart"></i> {{\App\Models\basket::where('user_id',Auth::user()->id)->count()}}
+                    </a>
                 @endif
             </div>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
         </div>
 
     </div>
@@ -150,8 +149,9 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3" style="background: darkgrey; color: white">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    <div class="footer-copyright text-center py-3" style="background: darkgrey; color: white;font-size: 25px;">
+        © 2020 Copyright:
+        <a href="/"> FreeFireStore.com</a>
     </div>
     <!-- Copyright -->
 

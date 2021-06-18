@@ -20,26 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4920047d-44d8-4563-be30-5f45f67aa7da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/CatView.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/EditProduct.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/EditUser.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/ProductView.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/site/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BasketController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RaitController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/basket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/game.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/games.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/games.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_30_085407_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_30_085407_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/categories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/products.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/Index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/Index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/LoginForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/LoginForm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +92,6 @@
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
@@ -118,15 +110,12 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
@@ -161,6 +150,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
     </include_path>
   </component>
   <component name="ProjectId" id="1t6ROn4UUCfVNpsNHY6zuBcDlee" />
@@ -182,10 +176,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\master\resources\views\user" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\master\resources\views\user" />
     </key>
   </component>
@@ -225,6 +219,7 @@
       <workItem from="1623910236756" duration="768000" />
       <workItem from="1623911292779" duration="9085000" />
       <workItem from="1623949222220" duration="6302000" />
+      <workItem from="1623959758274" duration="22733000" />
     </task>
     <servers />
   </component>
@@ -248,21 +243,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="229" y="54" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623693605682" />
-    <state x="920" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623840986183">
+    <state x="920" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623966777953">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="920" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623840986183" />
+    <state x="920" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623966777953" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1623238141654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623238141654" />
-    <state x="742" y="243" key="NewPhpClassDialog" timestamp="1623808818186">
+    <state x="742" y="243" key="NewPhpClassDialog" timestamp="1623981866132">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="742" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623808818186" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1623955305904">
+    <state x="742" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623981866132" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1623983355753">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623955305904" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623983355753" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1623978033181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1623978033181" />
   </component>
 </project>
