@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/images/static/Logo.png" type="image/x-icon">
+    <title>@yield('title') || Free Fire Store</title>
+    <meta charset="keywords" content="Цифровой магазин игр FreeFireStore, магазин игр FreeFireStore,магазин игр в Томске">
+    <meta charset="description" content="Онлайн-сервис цифрового распространения компьютерных игр FreeFireStore">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <link rel="shortcut icon" href="/images/static/Logo.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -18,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
-    <title>@yield('title')</title>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,7 +45,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/games?query=new">Новые игры</a></li>
-                        {{--                        <li><a class="dropdown-item" href="/games?query=popular">Популярные игры</a></li>--}}
                         <li><a class="dropdown-item" href="/games?query=sale">Со скидкой</a></li>
                         <li><a class="dropdown-item" href="/games">Все игры</a></li>
                     </ul>
@@ -78,7 +82,7 @@
                             @if(Auth::user()->status == 'admin')
                                 <li><a class="dropdown-item" href="/admin">Admin</a></li>
                             @endif
-                            {{--                            <li><a class="dropdown-item" href="/user/profile">Ваш профиль</a></li>--}}
+                                                        <li><a class="dropdown-item" href="/user/profile">Ваш профиль</a></li>
                             <li><a class="dropdown-item" href="/user/games">Игры</a></li>
                             {{--                            <li><a class="dropdown-item" href="#">Чат</a></li>--}}
                             {{--                            <li> <a class="dropdown-item" href="#">Друзья</a></li>--}}

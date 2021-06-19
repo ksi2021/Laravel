@@ -91,6 +91,7 @@ Route::post('/register', [UserController::class, 'reg']);
 
 Route::middleware('auth')->prefix('user')->group(function () {
     Route::get('/logout', [UserController::class, 'Logout']);
+    Route::post('/edit',[UserController::class, 'EditUser']);
     Route::get('/add_to_basket/{id}', [\App\Http\Controllers\BasketController::class, 'store']);
     Route::post('/purchase', [\App\Http\Controllers\PurchaseController::class, 'store']);
     Route::get('/delete_from_basket/{id}', [\App\Http\Controllers\BasketController::class, 'destroy']);
@@ -101,7 +102,7 @@ Route::middleware('auth')->prefix('user')->group(function () {
         return view('site.basket', ['items' => $items, 'products' => $products]);
     });
     Route::get('/profile', function () {
-        return [1, 2, 3, 4, 5];
+        return view('user.profile');
     });
     Route::get('/games',function (){
         $products = \App\Models\Product::all();

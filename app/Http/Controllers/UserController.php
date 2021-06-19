@@ -19,10 +19,6 @@ class UserController extends Controller
 {
     public function show(Request $request, $id)
     {
-//        return view('user.profile', [
-//            'user' => User::findOrFail($id)
-//        ]);
-
         return response()->json(User::query()->where(['id' => $id])->firstOrFail() ? User::query()->where(['id' => $id])->first() : ['error' => true, 'message' => 'not found']);
     }
 
@@ -36,24 +32,12 @@ class UserController extends Controller
 
     public function auth(Request $request)
     {
-        //  Auth::logout();
-        // dd(Auth::user());
-        //$e = Auth::user();
-        //$name = $request->old('name');
-        // dd(Session::all());
-        // $e = DB::table('products')->orderBy('id')->SimplePaginate(1);
 
-
-        //  dd($e->products());
         return view('user.LoginForm');
     }
 
     public function authPost(Request $request)
     {
-//        if(Auth::attempt(['email' => 'serj.cononeko2012@mail.ru', 'password' => '1234567880']))
-//        return dd($request->input());
-//        return '123';
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -142,9 +126,23 @@ class UserController extends Controller
         return view('Admin.EditUser', ['user' => $user]);
     }
 
+    public function EditUser(Request $request)
+    {
+        $user = User::query()->where('id',Auth::user()->id)->first();
+        if($request->input('email')){
+            $data = User::query()->where('email', $request->input('email'))->first();
+            if($data->count() > 1){return back()->withErrors(['email' => 'email already required']);}
+            if($request->input('email') != Auth::user()->email){ $user->email = $request->input('email');}
+        }
+        if($request->input('name')){$user->username = $request->input('name');}
+        if($request->input('password')){$user->password = Hash::make($request->input('password'));}
+        if($user->save()){return back()->with(['success' => 'изменения успешно сохранены']);}
+        return back();
+    }
+
+
     public function update(Request $request)
     {
-       // session()->forget('user_page');
         $key = $request->session()->get('user_page') != null ? $request->session()->get('user_page')[0] : 1;
 
 
