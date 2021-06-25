@@ -21,7 +21,7 @@ document.querySelector('.search').oninput = function (e) {
         });
 
         let c = document.querySelector('.list');
-        let result = products.filter(item => item.title.toLowerCase().search(e.target.value.toLowerCase()) != -1);
+        let result = products.filter(item => item.title.toLowerCase().search(e.target.value.toLowerCase().trim()) != -1);
         var child = c.lastElementChild;
         while (child) {
             c.removeChild(child);
@@ -42,7 +42,7 @@ document.querySelector('.search').oninput = function (e) {
             li.append(img);
             li.append(a);
             li.style.display = 'flex';
-            li.style.width = '50%';
+
             li.style.flexDirection = 'column';
             c.append(li);
         });

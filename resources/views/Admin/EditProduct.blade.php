@@ -46,7 +46,7 @@
 
 
                 <select class="form-select mb-3"  name="category"   class="form-control  @error('category') is-invalid @enderror" aria-label="Default select example">
-                    <option value="{{$data->category_id}}" selected>{{$data->category_id}}</option>
+                    <option value="{{$data->category_id}}" selected>{{\App\Models\Category::query()->where(['id' => $data->category_id])->first()->name}}</option>
 
                     @foreach($cat as $element)
 

@@ -32,7 +32,6 @@
                 </div>
 
                 <div class="form-group">
-
                     <input type="checkbox" value="{{ old('remember') }}" name="remember" id="cb">
                     <label for="cb">Remember me ?</label>
                 </div>

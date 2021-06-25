@@ -20,18 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4920047d-44d8-4563-be30-5f45f67aa7da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/card-js.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/card-js.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/htdocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/htdocs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_30_085407_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_30_085407_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_17_234100_create_baskets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_17_234100_create_baskets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_17_234201_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_17_234201_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_17_234558_create_raits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_17_234558_create_raits_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/EditProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/EditProduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/products.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/Index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/Index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/basket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/basket.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/LoginForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/LoginForm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/RegisterForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/RegisterForm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +53,14 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,6 +172,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/brianium/paratest" />
     </include_path>
   </component>
   <component name="ProjectId" id="1t6ROn4UUCfVNpsNHY6zuBcDlee" />
@@ -168,15 +189,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\master\public\css" />
+      <recent name="D:\xampp\htdocs\master\public\js" />
       <recent name="D:\xampp\htdocs\master\resources\views\user" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\master\resources\views\user" />
     </key>
   </component>
@@ -217,7 +241,9 @@
       <workItem from="1623911292779" duration="9085000" />
       <workItem from="1623949222220" duration="6302000" />
       <workItem from="1623959758274" duration="31966000" />
-      <workItem from="1624054812100" duration="12126000" />
+      <workItem from="1624054812100" duration="12897000" />
+      <workItem from="1624398696366" duration="11165000" />
+      <workItem from="1624438673649" duration="18844000" />
     </task>
     <servers />
   </component>
@@ -257,9 +283,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623985725145" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1623978033181">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1624484713758">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1623978033181" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624484713758" />
   </component>
 </project>

@@ -16,11 +16,12 @@ class ProductController extends Controller
     {
         $request->validate([
             'image' => 'required|image',
-            'title' => 'required',
+            'title' => 'required|unique:products',
             'body' => 'required',
             'category' => 'required',
             'price' => 'required'
         ]);
+
 
         $c = new Product();
         $path = $request->file('image')->store('uploads', 'public');

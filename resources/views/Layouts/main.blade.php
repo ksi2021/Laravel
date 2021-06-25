@@ -7,7 +7,7 @@
     <meta charset="description" content="Онлайн-сервис цифрового распространения компьютерных игр FreeFireStore">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
+    @yield('links')
 
     <link rel="shortcut icon" href="/images/static/Logo.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -95,7 +95,7 @@
                 <input class="form-control form-control-dark search" type="text" placeholder="Search"
                        aria-label="Search">
                 <ul class="list list-group"
-                    style="position: absolute;z-index: 99;top:70px;max-height: 500px;overflow-y: auto">
+                    style="position: absolute;z-index: 99;top:70px;max-height: 500px;overflow-y: auto;max-width:800px;">
 
                 </ul>
             </div>

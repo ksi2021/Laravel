@@ -26,7 +26,7 @@
 
                 @endphp
             @foreach($data as $id => $value)
-                <div class="carousel-item @if($id == 0)active @endif" style="height: 600px;">
+                <div class="carousel-item @if($id == 0)active @endif" style="max-height: 600px;">
                     <a class="a-link" href="/game/{{$value->id}}">
 
                         <img src="{{asset('/storage/' . $value->image)}}" style="width: 100% ;" class="d-block mx-auto"

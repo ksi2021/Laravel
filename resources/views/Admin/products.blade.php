@@ -33,10 +33,13 @@
             </div>
             <div style="padding: 10px;">
                 @csrf
-                <img src="..." class="preview" style="max-width: 600px;max-height: 400px;" alt="preview">
+                <img src="" class="preview" style="max-width: 600px;max-height: 400px;" alt="preview">
                 <div class="mb-3">
                     <input class="form-control" name="image" accept=".png,.jpg,.jpeg" type="file" id="formFile">
                 </div>
+                @error('image')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
                 <div class="form-group">
                     <input type="text" value="{{ old('title') }}" placeholder="Enter title" name="title" class="form-control @error('name') is-invalid @enderror">
                     @error('title')
@@ -59,7 +62,7 @@
 
 
                 <select class="form-select mb-3"  name="category"   class="form-control  @error('category') is-invalid @enderror" aria-label="Default select example">
-                    <option selected>Select category</option>
+                    <option selected value="">Select category</option>
                    @foreach($cat as $element)
                         <option value="{{$element->id}}">{{$element->name}}</option>
                     @endforeach
@@ -76,7 +79,7 @@
             </div>
         </form>
     </div>
-    <table class="my-3 p-3 mx-auto rounded shadow-sm table" style="box-shadow: 0 0 5px rgba(0,0,0,0.3) !important;width: 99%;">
+    <table class="my-3 p-3 mx-auto rounded shadow-sm table table-bordered text-center " style="box-shadow: 0 0 5px rgba(0,0,0,0.3) !important;width: 99%;">
         <thead>
         <tr>
             <th scope="col">#</th>

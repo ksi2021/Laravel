@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -128,15 +129,39 @@ class UserController extends Controller
 
     public function EditUser(Request $request)
     {
-        $user = User::query()->where('id',Auth::user()->id)->first();
-        if($request->input('email')){
-            $data = User::query()->where('email', $request->input('email'))->first();
-            if($data->count() > 1){return back()->withErrors(['email' => 'email already required']);}
-            if($request->input('email') != Auth::user()->email){ $user->email = $request->input('email');}
+        $user = User::query()->where('id', Auth::user()->id)->first();
+//      var_dump(Hash::check($request->input('current_pass'),Auth::user()->password));
+//        var_dump($request->input());
+//       var_dump(Auth::user()->password);
+//        var_dump(Hash::make($request->input('current_pass')));
+//
+//        die();
+        if (!$request->input('current_pass') || !Hash::check($request->input('current_pass'), Auth::user()->password)) {
+            return back()->withErrors(['current_pass' => 'Не введен текущий пароль или он не верен']);
         }
-        if($request->input('name')){$user->username = $request->input('name');}
-        if($request->input('password')){$user->password = Hash::make($request->input('password'));}
-        if($user->save()){return back()->with(['success' => 'изменения успешно сохранены']);}
+        if (empty($request->input('email')) && empty($request->input('name')) && empty($request->input('password'))) {
+
+            return back()->withErrors(['state_' => 'Не 1 поле не было затронуто , убедитесь что вы заполнили поля']);
+        }
+        if ($request->input('email')) {
+            $data = User::query()->where('email', $request->input('email'))->first();
+            if ($data->count() > 1) {
+                return back()->withErrors(['email' => 'email already required']);
+            }
+            if ($request->input('email') != Auth::user()->email) {
+                $user->email = $request->input('email');
+            }
+        }
+        if ($request->input('name')) {
+            $user->username = $request->input('name');
+        }
+        if ($request->input('password')) {
+            $user->password = Hash::make($request->input('password'));
+
+        }
+        if ($user->save()) {
+            return back()->with(['success' => 'изменения успешно сохранены']);
+        }
         return back();
     }
 
@@ -162,7 +187,7 @@ class UserController extends Controller
         }
         $e->status = $request->input('status');
         $e->username = $request->input('username');
-        if($e->save()) return redirect('/admin/users?page' . $key);
+        if ($e->save()) return redirect('/admin/users?page' . $key);
         return back()->withInput();
     }
 }

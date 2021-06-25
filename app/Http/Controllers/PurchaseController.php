@@ -28,7 +28,7 @@ class PurchaseController extends Controller
             $e->user_id = $game['user_id'];
             if($e->save()){basket::where('id' ,$game['id'])->first()->delete();}
         }
-       return redirect('/user/profile');
+       return redirect('/user/games');
     }
 
 }
